@@ -54,23 +54,5 @@ class UtilityFunctions {
     protected static String getMegaBytes(int bytes){
         return String.valueOf(((int)((double)bytes/1048576 *100))/100D);
     }
-    protected static void moveFile(String source, String destination){
-        Path sourcePath = Paths.get(source);
-        Path destinationPath = Paths.get(destination);
-        try {
-            if (new File(destination).isDirectory()) {
-                if(destinationPath.endsWith("\\") || destinationPath.endsWith("/")) {
-                    Files.move(sourcePath, Paths.get(destination+sourcePath.getFileName()));
-                }
-                else{
-                    Files.move(sourcePath, Paths.get(destination+'\\'+sourcePath.getFileName()));
-                }
-            } else {
-                Files.move(sourcePath, destinationPath);
-            }
-        }catch (IOException ioException){
-            System.out.println(ioException.getMessage());
-        }
-    }
 
 }

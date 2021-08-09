@@ -9,6 +9,7 @@ class AcceptConnection extends SwingWorker<String, Object> {
     volatile protected Socket acceptedSocket;
     private final ServerSocket serverSocket;
     private final JTextArea console;
+
     AcceptConnection(ServerSocket ss, JTextArea console){
         this.serverSocket = ss;
         this.console = console;
@@ -25,8 +26,6 @@ class AcceptConnection extends SwingWorker<String, Object> {
         Main.acceptedSocket = this.acceptedSocket;
         Main.revealComponents();
     }
-
-
 }
 
 

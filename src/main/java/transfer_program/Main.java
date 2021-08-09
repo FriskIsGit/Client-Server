@@ -398,7 +398,6 @@ class Main {
                                 ReceiveFile receiver = new ReceiveFile(inputStream, path, consoleArea, monitor, bufferChunkSize, receiveFileInfoBox.isSelected(), updateConsoleBox.isSelected());
                                 receiver.execute();
 
-                                //write
                             } else {
                                 consoleArea.append("\nInvalid directory");
                             }
@@ -412,7 +411,6 @@ class Main {
             }
         });
         listOfComponents.add(frame.add(receiveTransferButton));
-
 
         JButton initTransferButton = new JButton("Transfer file");
         initTransferButton.setVisible(false);
@@ -487,11 +485,9 @@ class Main {
                 }else{
                     consoleArea.append("\nNot connected");
                 }
-
             }
         });
         listOfComponents.add(frame.add(initTransferButton));
-
     }
 
     private boolean createServer(int port, boolean toBind, String IP) {
@@ -511,7 +507,6 @@ class Main {
         if(OS.startsWith("Windows")){
             consoleArea.append("\nServer address: " + retrieveAddress());
         }
-
         return true;
     }
 
@@ -540,12 +535,6 @@ class Main {
         return null;
     }
 
-    protected void printSocketStates(Socket socket) {
-        consoleArea.append("\nClosed: " + socket.isClosed());
-        consoleArea.append("\nConnected: " + socket.isConnected());
-        consoleArea.append("\nBound: " + socket.isBound());
-        consoleArea.append("\nOutputShutdown: " + socket.isOutputShutdown());
-    }
     protected static String getTime(){
         Timestamp timestamp = new Timestamp(new Date().getTime());
         return "\n[" + String.valueOf(timestamp).substring(11,19) + "] ";
@@ -573,7 +562,6 @@ class Main {
         monitor.setFont(new Font("Arial", Font.BOLD, 20));
         monitor.setBounds(326,386,70,30);
         frame.add(monitor);
-
     }
 
     private void addLabel(String text, int x, int y) {
